@@ -1,0 +1,1493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IP-SAKTI Sahayak | AI-Powered IP & Regulatory Assistant for Ayurveda</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="lang-en">
+
+    <!-- TOP ANNOUNCEMENT BANNER -->
+    <div class="top-banner">
+        <div class="banner-container">
+            <span class="badge-sih">SIH 2026 • Problem Statement 26045</span>
+            <span class="banner-text">AI + Ayurveda + Intellectual Property + Regulatory Compliance</span>
+            <div class="banner-actions">
+                <button class="btn-lang-toggle" onclick="toggleLanguage()">
+                    <span class="lang-icon">🌐</span>
+                    <span id="lang-toggle-text">हिंदी में बदलें (Hindi)</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- NAVIGATION HEADER -->
+    <header class="main-header" id="header">
+        <div class="nav-container">
+            <a href="#home" class="logo" onclick="switchView('home')">
+                <div class="logo-icon">🌿</div>
+                <div class="logo-text">
+                    <span class="brand-title">IP-SAKTI</span>
+                    <span class="brand-sub">Sahayak</span>
+                </div>
+            </a>
+
+            <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+
+            <nav class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link active" data-view="home" data-i18n="nav_home" onclick="switchView('home'); return false;">Home</a>
+                <a href="#dashboard" class="nav-link" data-view="dashboard" data-i18n="nav_dashboard" onclick="switchView('dashboard'); return false;">Dashboard</a>
+                <a href="#ai-assistant" class="nav-link" data-view="ai-assistant" data-i18n="nav_ai" onclick="switchView('ai-assistant'); return false;">AI Assistant</a>
+                <a href="#plant-intelligence" class="nav-link" data-view="plant-intelligence" data-i18n="nav_plants" onclick="switchView('plant-intelligence'); return false;">Plant Intelligence</a>
+                <a href="#product-analyzer" class="nav-link" data-view="product-analyzer" data-i18n="nav_product" onclick="switchView('product-analyzer'); return false;">Product Analyzer</a>
+                <a href="#document-analyzer" class="nav-link" data-view="document-analyzer" data-i18n="nav_doc" onclick="switchView('document-analyzer'); return false;">Doc Analyzer</a>
+                <a href="#ip-search" class="nav-link" data-view="ip-search" data-i18n="nav_ip_search" onclick="switchView('ip-search'); return false;">IP Search</a>
+                <a href="#ip-guidance" class="nav-link" data-view="ip-guidance" data-i18n="nav_ip_guide" onclick="switchView('ip-guidance'); return false;">IP Guidance</a>
+                <a href="#regulations" class="nav-link" data-view="regulations" data-i18n="nav_regulations" onclick="switchView('regulations'); return false;">Regulations</a>
+                <a href="#knowledge-library" class="nav-link" data-view="knowledge-library" data-i18n="nav_library" onclick="switchView('knowledge-library'); return false;">Knowledge Library</a>
+                <a href="#architecture" class="nav-link" data-view="architecture" data-i18n="nav_arch" onclick="switchView('architecture'); return false;">Architecture</a>
+                <a href="#about" class="nav-link" data-view="about" data-i18n="nav_about" onclick="switchView('about'); return false;">About</a>
+            </nav>
+
+            <div class="nav-right">
+                <button class="btn-secondary btn-sm" onclick="openLoginModal()" data-i18n="nav_login">Login</button>
+                <button class="btn-primary btn-sm btn-gold-pulse" onclick="startGuidedDemo()" data-i18n="nav_try_demo">⚡ Try Interactive Demo</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- NOTIFICATION TOAST -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- MAIN CONTENT CONTAINER FOR ALL VIEWS -->
+    <main class="main-content">
+
+        <!-- ========================================== -->
+        <!-- VIEW 1: HOME LANDING PAGE                  -->
+        <!-- ========================================== -->
+        <section id="view-home" class="page-view active">
+            <!-- HERO SECTION -->
+            <div class="hero-section">
+                <div class="hero-bg-pattern"></div>
+                <div class="container hero-grid">
+                    <div class="hero-content">
+                        <div class="pill-tag">
+                            <span class="pill-dot"></span>
+                            <span data-i18n="hero_pill">SIH 2026 • AI + Ayurveda + Intellectual Property</span>
+                        </div>
+                        <h1 class="hero-title" data-i18n="hero_title">
+                            Protecting Ayurveda Through Intelligent IP & Regulatory Guidance
+                        </h1>
+                        <p class="hero-subtitle" data-i18n="hero_subtitle">
+                            An AI-powered multilingual assistant that helps Ayurveda innovators identify plants, understand traditional knowledge, explore intellectual property, and navigate regulatory requirements with transparent, source-cited guidance.
+                        </p>
+                        
+                        <div class="hero-tagline-box">
+                            <span class="tagline-main" data-i18n="tagline_main">“AI-Powered Intellectual Property & Regulatory Assistant for Ayurveda”</span>
+                            <span class="tagline-sub" data-i18n="tagline_sub">Identify. Understand. Verify. Protect.</span>
+                        </div>
+
+                        <div class="hero-actions">
+                            <button class="btn-primary btn-lg" onclick="startGuidedDemo()">
+                                <span class="btn-icon">✨</span>
+                                <span data-i18n="hero_cta_demo">Try Interactive Demo</span>
+                            </button>
+                            <button class="btn-secondary btn-lg" onclick="switchView('ai-assistant')">
+                                <span class="btn-icon">🤖</span>
+                                <span data-i18n="hero_cta_ai">Ask AI Assistant</span>
+                            </button>
+                            <button class="btn-outline btn-lg" onclick="switchView('plant-intelligence')">
+                                <span class="btn-icon">🌿</span>
+                                <span data-i18n="hero_cta_plant">Identify an Ayurvedic Plant</span>
+                            </button>
+                        </div>
+
+                        <div class="hero-trust-bar">
+                            <span class="trust-label" data-i18n="trust_label">Referenced Knowledge Repositories:</span>
+                            <div class="trust-logos">
+                                <span class="trust-badge">TKDL (CSIR)</span>
+                                <span class="trust-badge">Indian Patent Office</span>
+                                <span class="trust-badge">WIPO</span>
+                                <span class="trust-badge">National Biodiversity Authority</span>
+                                <span class="trust-badge">Ministry of AYUSH</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hero-visual">
+                        <div class="visual-card-stack">
+                            <div class="hero-card main-card">
+                                <div class="card-header-badge">
+                                    <span class="status-indicator active"></span>
+                                    <span>AI Analysis Live Simulation</span>
+                                </div>
+                                <div class="card-plant-preview">
+                                    <img src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=600&q=80" alt="Ashwagandha Plant" class="hero-img">
+                                    <div class="scan-overlay">
+                                        <div class="scan-line"></div>
+                                        <div class="scan-point p1"></div>
+                                        <div class="scan-point p2"></div>
+                                    </div>
+                                </div>
+                                <div class="hero-card-details">
+                                    <div class="plant-meta">
+                                        <h4>Withania somnifera (Ashwagandha)</h4>
+                                        <span class="confidence-tag">94% Prototype Match</span>
+                                    </div>
+                                    <div class="analysis-row">
+                                        <span class="label">Traditional Knowledge:</span>
+                                        <span class="value text-warning">TKDL Prior Art Found</span>
+                                    </div>
+                                    <div class="analysis-row">
+                                        <span class="label">IP Risk Score:</span>
+                                        <span class="value text-warning">62/100 (Moderate Risk)</span>
+                                    </div>
+                                    <div class="analysis-row">
+                                        <span class="label">Primary Sources:</span>
+                                        <span class="value">TKDL, IPO Patents Sec 3(p)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="floating-badge fb-1">
+                                <span>⚖️ Sec 3(p) Violation Check</span>
+                            </div>
+                            <div class="floating-badge fb-2">
+                                <span>📚 Source Citation: TKDL Entry #AY-402</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FEATURE CARDS SECTION -->
+            <section class="section feature-section">
+                <div class="container">
+                    <div class="section-header center">
+                        <span class="section-badge" data-i18n="sec_capabilities">Core Capabilities</span>
+                        <h2 class="section-title" data-i18n="sec_cap_title">Intelligent Modules for Ayurveda Innovation</h2>
+                        <p class="section-desc" data-i18n="sec_cap_desc">Combining traditional bio-resource knowledge with modern intellectual property frameworks and national regulatory standards.</p>
+                    </div>
+
+                    <div class="grid grid-3">
+                        <div class="card feature-card" onclick="switchView('ai-assistant')">
+                            <div class="card-icon">🤖</div>
+                            <h3 class="card-title" data-i18n="f1_title">AI-Powered Guidance</h3>
+                            <p class="card-text" data-i18n="f1_desc">Source-cited answers for patentability, trademarks, copyright, and regulatory compliance tailored for Ayurvedic formulations.</p>
+                            <button class="card-link"><span data-i18n="learn_more">Learn More</span> &rarr;</button>
+                        </div>
+
+                        <div class="card feature-card" onclick="switchView('plant-intelligence')">
+                            <div class="card-icon">🌿</div>
+                            <h3 class="card-title" data-i18n="f2_title">Ayurvedic Plant Intelligence</h3>
+                            <p class="card-text" data-i18n="f2_desc">Identify plants via photo, explore traditional uses, active constituents, skincare applications, and TKDL prior art implications.</p>
+                            <button class="card-link"><span data-i18n="learn_more">Learn More</span> &rarr;</button>
+                        </div>
+
+                        <div class="card feature-card" onclick="switchView('knowledge-library')">
+                            <div class="card-icon">📚</div>
+                            <h3 class="card-title" data-i18n="f3_title">Source-Cited Answers</h3>
+                            <p class="card-text" data-i18n="f3_desc">Every response maps directly to verifiable sources including TKDL, WIPO, Indian Patent Office, NBA, and Ministry of AYUSH.</p>
+                            <button class="card-link"><span data-i18n="learn_more">Learn More</span> &rarr;</button>
+                        </div>
+
+                        <div class="card feature-card" onclick="switchView('ip-guidance')">
+                            <div class="card-icon">⚖️</div>
+                            <h3 class="card-title" data-i18n="f4_title">IP Protection Guidance</h3>
+                            <p class="card-text" data-i18n="f4_desc">Step-by-step strategy to safeguard brand names, novel extraction processes, product designs, and geographical indications.</p>
+                            <button class="card-link"><span data-i18n="learn_more">Learn More</span> &rarr;</button>
+                        </div>
+
+                        <div class="card feature-card" onclick="switchView('regulations')">
+                            <div class="card-icon">🌍</div>
+                            <h3 class="card-title" data-i18n="f5_title">National & International Regs</h3>
+                            <p class="card-text" data-i18n="f5_desc">Navigate Indian AYUSH & NBA Access & Benefit Sharing (ABS) rules as well as global regulatory systems (US FDA, EU EMA).</p>
+                            <button class="card-link"><span data-i18n="learn_more">Learn More</span> &rarr;</button>
+                        </div>
+
+                        <div class="card feature-card" onclick="toggleLanguage()">
+                            <div class="card-icon">🌐</div>
+                            <h3 class="card-title" data-i18n="f6_title">Multilingual Assistance</h3>
+                            <p class="card-text" data-i18n="f6_desc">Interact seamlessly in English, Hindi, Tamil, Telugu, Marathi, and Bengali to democratize IP literacy for rural innovators.</p>
+                            <button class="card-link"><span data-i18n="learn_more">Switch Language</span> &rarr;</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- HOW IT WORKS PROCESS SECTION -->
+            <section class="section process-section bg-light">
+                <div class="container">
+                    <div class="section-header center">
+                        <span class="section-badge" data-i18n="sec_workflow">Workflow</span>
+                        <h2 class="section-title" data-i18n="sec_wf_title">How IP-SAKTI Works</h2>
+                        <p class="section-desc" data-i18n="sec_wf_desc">From raw botanical input to verifiable, source-cited intellectual property guidance.</p>
+                    </div>
+
+                    <div class="workflow-steps">
+                        <div class="step-card">
+                            <div class="step-num">01</div>
+                            <div class="step-icon">📤</div>
+                            <h4>Ask / Upload</h4>
+                            <p>Upload plant image, product label, or type your IP question.</p>
+                        </div>
+                        <div class="step-arrow">&rarr;</div>
+
+                        <div class="step-card">
+                            <div class="step-num">02</div>
+                            <div class="step-icon">🔎</div>
+                            <h4>Identify / Analyze</h4>
+                            <p>Computer vision & OCR extract botanical traits and ingredients.</p>
+                        </div>
+                        <div class="step-arrow">&rarr;</div>
+
+                        <div class="step-card">
+                            <div class="step-num">03</div>
+                            <div class="step-icon">📖</div>
+                            <h4>Knowledge Retrieval</h4>
+                            <p>RAG engine fetches authoritative references from database.</p>
+                        </div>
+                        <div class="step-arrow">&rarr;</div>
+
+                        <div class="step-card">
+                            <div class="step-num">04</div>
+                            <div class="step-icon">📜</div>
+                            <h4>TKDL Prior-Art Check</h4>
+                            <p>Cross-references Traditional Knowledge Digital Library records.</p>
+                        </div>
+                        <div class="step-arrow">&rarr;</div>
+
+                        <div class="step-card">
+                            <div class="step-num">05</div>
+                            <div class="step-icon">⚖️</div>
+                            <h4>IP & Regulatory Check</h4>
+                            <p>Evaluates Patent Sec 3(p), Trademark, ABS rules, and export norms.</p>
+                        </div>
+                        <div class="step-arrow">&rarr;</div>
+
+                        <div class="step-card">
+                            <div class="step-num">06</div>
+                            <div class="step-icon">📊</div>
+                            <h4>Risk Assessment</h4>
+                            <p>Calculates overall novelty, legal risk score, and compliance status.</p>
+                        </div>
+                        <div class="step-arrow">&rarr;</div>
+
+                        <div class="step-card highlight">
+                            <div class="step-num">07</div>
+                            <div class="step-icon">🎯</div>
+                            <h4>Source-Cited Action Plan</h4>
+                            <p>Delivers structured recommendations with verified source links.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CALL TO ACTION BANNER -->
+            <section class="section cta-banner">
+                <div class="container cta-box">
+                    <div class="cta-content">
+                        <h2>Ready to Evaluate Your Ayurvedic Innovation?</h2>
+                        <p>Experience the 3-minute guided SIH presentation demo simulating real-time plant detection, TKDL verification, patent search, and regulatory risk scoring.</p>
+                    </div>
+                    <div class="cta-actions">
+                        <button class="btn-gold btn-lg" onclick="startGuidedDemo()">🚀 Launch Guided Demo</button>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+
+        <!-- ========================================== -->
+        <!-- VIEW 2: DASHBOARD                          -->
+        <!-- ========================================== -->
+        <section id="view-dashboard" class="page-view">
+            <div class="container">
+                <div class="dashboard-header">
+                    <div>
+                        <h1 class="page-title" data-i18n="dash_welcome">Welcome to IP-SAKTI Sahayak</h1>
+                        <p class="page-subtitle" data-i18n="dash_subtitle">Your intelligent assistant for Ayurveda IP and regulatory guidance.</p>
+                    </div>
+                    <div class="dash-date-badge">
+                        <span id="current-date-str">September 10, 2026</span>
+                    </div>
+                </div>
+
+                <!-- METRICS GRID -->
+                <div class="grid grid-4 metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-icon bg-emerald">📦</div>
+                        <div class="metric-data">
+                            <span class="metric-val" id="stat-products">12</span>
+                            <span class="metric-lbl" data-i18n="m_products">Products Analyzed</span>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon bg-forest">🌿</div>
+                        <div class="metric-data">
+                            <span class="metric-val" id="stat-plants">18</span>
+                            <span class="metric-lbl" data-i18n="m_plants">Plants Identified</span>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon bg-gold">🔍</div>
+                        <div class="metric-data">
+                            <span class="metric-val" id="stat-searches">8</span>
+                            <span class="metric-lbl" data-i18n="m_searches">IP Searches</span>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon bg-charcoal">📄</div>
+                        <div class="metric-data">
+                            <span class="metric-val" id="stat-reports">4</span>
+                            <span class="metric-lbl" data-i18n="m_reports">Reports Generated</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DASHBOARD MAIN CONTENT -->
+                <div class="grid grid-3 dashboard-layout">
+                    <!-- LEFT COLUMN: QUICK ACTIONS & RECENT ACTIVITY -->
+                    <div class="dash-col-left grid-span-2">
+                        <!-- QUICK ACTIONS -->
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <h3>⚡ Quick Actions</h3>
+                            </div>
+                            <div class="grid grid-3 gap-sm">
+                                <button class="quick-act-btn" onclick="switchView('ai-assistant')">
+                                    <span class="qa-icon">🤖</span>
+                                    <span>Ask AI Assistant</span>
+                                </button>
+                                <button class="quick-act-btn" onclick="switchView('plant-intelligence')">
+                                    <span class="qa-icon">🌿</span>
+                                    <span>Identify Plant</span>
+                                </button>
+                                <button class="quick-act-btn" onclick="switchView('product-analyzer')">
+                                    <span class="qa-icon">📦</span>
+                                    <span>Analyze Product</span>
+                                </button>
+                                <button class="quick-act-btn" onclick="switchView('document-analyzer')">
+                                    <span class="qa-icon">📑</span>
+                                    <span>Analyze Document</span>
+                                </button>
+                                <button class="quick-act-btn" onclick="switchView('ip-search')">
+                                    <span class="qa-icon">🔎</span>
+                                    <span>Search IP Records</span>
+                                </button>
+                                <button class="quick-act-btn" onclick="switchView('regulations')">
+                                    <span class="qa-icon">📜</span>
+                                    <span>Check Regulations</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- RECENT ACTIVITY TABLE -->
+                        <div class="card">
+                            <div class="card-header flex-between">
+                                <h3>📋 Recent Activity & Audits</h3>
+                                <button class="btn-text" onclick="switchView('reports')">View All &rarr;</button>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Item / Formulation</th>
+                                            <th>Category</th>
+                                            <th>TKDL Match</th>
+                                            <th>Risk Level</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <strong>Ashwagandha Herbal Formulation</strong>
+                                                <div class="table-sub">Withania somnifera formulation</div>
+                                            </td>
+                                            <td><span class="badge">Formulation</span></td>
+                                            <td><span class="status-dot warning"></span> Found</td>
+                                            <td><span class="risk-badge moderate">Review Required (62)</span></td>
+                                            <td><button class="btn-xs btn-outline" onclick="runProductDemo('ashwagandha')">Inspect</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <strong>Neem-Based Skincare Gel</strong>
+                                                <div class="table-sub">Azadirachta indica topical</div>
+                                            </td>
+                                            <td><span class="badge">Cosmetic</span></td>
+                                            <td><span class="status-dot warning"></span> Found</td>
+                                            <td><span class="risk-badge moderate">Moderate Risk (54)</span></td>
+                                            <td><button class="btn-xs btn-outline" onclick="runProductDemo('neem')">Inspect</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <strong>Brahmi Cognitive Syrup</strong>
+                                                <div class="table-sub">Bacopa monnieri extract</div>
+                                            </td>
+                                            <td><span class="badge">Wellness</span></td>
+                                            <td><span class="status-dot success"></span> Clear</td>
+                                            <td><span class="risk-badge low">Low Risk (22)</span></td>
+                                            <td><button class="btn-xs btn-outline" onclick="runProductDemo('brahmi')">Inspect</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <strong>Tulsi Immunity Booster</strong>
+                                                <div class="table-sub">Ocimum sanctum decoction</div>
+                                            </td>
+                                            <td><span class="badge">AYUSH Form</span></td>
+                                            <td><span class="status-dot warning"></span> Found</td>
+                                            <td><span class="risk-badge moderate">Review Required (58)</span></td>
+                                            <td><button class="btn-xs btn-outline" onclick="runProductDemo('tulsi')">Inspect</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- RIGHT COLUMN: RISK DISTRIBUTION CHART & RECENT ADVISORIES -->
+                    <div class="dash-col-right">
+                        <!-- RISK CHART CARD -->
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <h3>📊 IP Risk Portfolio</h3>
+                            </div>
+                            <div class="chart-box">
+                                <div class="custom-donut-chart">
+                                    <div class="donut-center">
+                                        <span class="donut-number">12</span>
+                                        <span class="donut-label">Evaluated</span>
+                                    </div>
+                                </div>
+                                <div class="chart-legend">
+                                    <div class="legend-item">
+                                        <span class="legend-dot low"></span>
+                                        <span class="legend-text">Low Risk (25%)</span>
+                                        <span class="legend-val">3</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <span class="legend-dot moderate"></span>
+                                        <span class="legend-text">Moderate Risk (58%)</span>
+                                        <span class="legend-val">7</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <span class="legend-dot high"></span>
+                                        <span class="legend-text">High Risk (17%)</span>
+                                        <span class="legend-val">2</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- IMPORTANT REGULATORY ADVISORY CARD -->
+                        <div class="card bg-accent-light border-gold">
+                            <div class="card-header">
+                                <h3>⚠️ Statutory Reminder</h3>
+                            </div>
+                            <p class="text-sm">
+                                <strong>Section 3(p) of Indian Patents Act, 1970:</strong> Inventions which, in effect, are traditional knowledge or an aggregation of known properties of traditionally known components are <strong>not patentable</strong>.
+                            </p>
+                            <div class="mt-2">
+                                <button class="btn-sm btn-gold w-100" onclick="switchView('regulations')">Read Full Guidelines</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================== -->
+        <!-- VIEW 3: AI ASSISTANT                       -->
+        <!-- ========================================== -->
+        <section id="view-ai-assistant" class="page-view">
+            <div class="container full-height-container">
+                <div class="ai-app-layout">
+                    <!-- AI SIDEBAR -->
+                    <div class="ai-sidebar">
+                        <button class="btn-primary btn-new-chat w-100" onclick="resetChat()">
+                            <span>+</span> <span data-i18n="ai_new_chat">New Query Session</span>
+                        </button>
+
+                        <div class="sidebar-section">
+                            <div class="sidebar-label" data-i18n="ai_suggested">Suggested Questions</div>
+                            <div class="suggested-queries-list">
+                                <button class="sq-item" onclick="askPredefinedQuery('ashwagandha_patent')">
+                                    Can I patent an Ayurvedic formulation containing Ashwagandha?
+                                </button>
+                                <button class="sq-item" onclick="askPredefinedQuery('neem_uses')">
+                                    What are the traditional skincare uses of Neem?
+                                </button>
+                                <button class="sq-item" onclick="askPredefinedQuery('brand_protection')">
+                                    How can I protect my Ayurvedic brand name?
+                                </button>
+                                <button class="sq-item" onclick="askPredefinedQuery('tk_patentability')">
+                                    Does traditional knowledge affect patentability under Sec 3(p)?
+                                </button>
+                                <button class="sq-item" onclick="askPredefinedQuery('abs_rules')">
+                                    What is Access and Benefit Sharing (ABS) under National Biodiversity Act?
+                                </button>
+                                <button class="sq-item" onclick="askPredefinedQuery('formulation_ip')">
+                                    What IP protection is suitable for a new herbal extraction process?
+                                </button>
+                                <button class="sq-item" onclick="askPredefinedQuery('export_regs')">
+                                    What should I check before selling my Ayurvedic product in the USA?
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="sidebar-footer">
+                            <button class="btn-text btn-sm" onclick="openRagModal()">
+                                🔍 <span data-i18n="ai_view_rag">How RAG Retrieval Works</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- AI CHAT MAIN AREA -->
+                    <div class="ai-chat-container">
+                        <div class="chat-header">
+                            <div class="chat-title-group">
+                                <h2>🤖 IP-SAKTI AI Assistant</h2>
+                                <p>Source-cited answers for Ayurveda, traditional knowledge, IP, and regulatory compliance.</p>
+                            </div>
+                            <div class="chat-controls">
+                                <button class="btn-outline btn-sm" onclick="toggleLanguage()">
+                                    🌐 <span id="chat-lang-label">Language: English</span>
+                                </button>
+                                <button class="btn-outline btn-sm" onclick="clearChat()">Clear</button>
+                            </div>
+                        </div>
+
+                        <!-- CHAT MESSAGES THREAD -->
+                        <div class="chat-thread" id="chat-thread">
+                            <!-- WELCOME INITIAL AI MESSAGE -->
+                            <div class="chat-message assistant">
+                                <div class="msg-avatar">🌿</div>
+                                <div class="msg-content">
+                                    <div class="msg-header">
+                                        <span class="sender-name">IP-SAKTI Sahayak AI</span>
+                                        <span class="msg-time">Just now</span>
+                                    </div>
+                                    <div class="msg-body">
+                                        <p>Namaste! I am your AI assistant for Intellectual Property, Traditional Knowledge (TKDL), Biodiversity ABS, and Regulatory Guidance in Ayurveda.</p>
+                                        <p>Select any suggested question from the left sidebar or type your query below regarding plant identification, novel formulations, trademarks, or export regulations.</p>
+                                    </div>
+                                    <div class="msg-disclaimer text-xs">
+                                        <span class="disc-icon">ℹ️</span> Source-Cited Prototype AI Response • Not substitute for official legal/medical counsel.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- INPUT BOX AREA -->
+                        <div class="chat-input-area">
+                            <div class="input-wrapper">
+                                <textarea id="chat-input" placeholder="Ask questions about Ayurveda plants, traditional knowledge, patentability, trademarks, or regulations..." rows="2" onkeydown="handleChatKeyPress(event)"></textarea>
+                                <div class="input-actions">
+                                    <button class="btn-icon-input" onclick="triggerFileUpload('chat-file-input')" title="Attach Document / Label">
+                                        📎
+                                    </button>
+                                    <input type="file" id="chat-file-input" style="display:none" onchange="handleChatFileUpload(this)">
+                                    <button class="btn-icon-input" onclick="simulateVoiceInput()" title="Voice Input (Microphone)">
+                                        🎙️
+                                    </button>
+                                    <button class="btn-primary btn-send" onclick="sendUserMessage()">
+                                        <span>Send</span> &rarr;
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="input-footer-tags">
+                                <span>Try: <em>"Can I patent Ashwagandha?"</em> or <em>"US FDA rules for Turmeric"</em></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================== -->
+        <!-- VIEW 4: PLANT INTELLIGENCE                 -->
+        <!-- ========================================== -->
+        <section id="view-plant-intelligence" class="page-view">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">🌿 Core Innovation Module</span>
+                    <h1 class="page-title">Ayurvedic Plant Intelligence</h1>
+                    <p class="page-subtitle">Upload a plant photograph or select a sample herb to analyze botanical identity, traditional uses, active constituents, skincare potential, and TKDL prior-art status.</p>
+                </div>
+
+                <!-- UPLOAD & DEMO SELECTOR AREA -->
+                <div class="card mb-4 upload-card-wrapper">
+                    <div class="upload-dropzone" id="plant-dropzone">
+                        <div class="dropzone-icon">📷</div>
+                        <h3>Upload or Capture Ayurvedic Plant Image</h3>
+                        <p>Upload a clear photo of a plant leaf, stem, flower, or root (JPG, PNG, WEBP)</p>
+                        <div class="upload-btn-group">
+                            <button class="btn-primary" onclick="triggerFileUpload('plant-file-input')">📤 Upload Image</button>
+                            <button class="btn-secondary" onclick="simulateCameraCapture()">📸 Take Photo</button>
+                            <input type="file" id="plant-file-input" style="display:none" accept="image/*" onchange="handlePlantUpload(this)">
+                        </div>
+                    </div>
+
+                    <div class="sample-plants-bar">
+                        <div class="sample-label">Or select a demo plant to inspect:</div>
+                        <div class="sample-chips-grid" id="sample-chips-container">
+                            <!-- Chips will be generated by JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LOADING ANIMATION OVERLAY FOR PLANT IDENTIFICATION -->
+                <div id="plant-loading-overlay" class="loading-overlay" style="display:none;">
+                    <div class="spinner"></div>
+                    <div class="loading-status-text" id="plant-loading-text">Analyzing plant image characteristics...</div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-fill" id="plant-progress-bar"></div>
+                    </div>
+                </div>
+
+                <!-- PLANT IDENTIFICATION RESULT SECTION -->
+                <div id="plant-result-container" class="plant-result-card" style="display:none;">
+                    <!-- RESULT HEADER BANNER -->
+                    <div class="result-header-banner">
+                        <div class="plant-main-header">
+                            <div class="plant-img-box">
+                                <img id="res-plant-img" src="" alt="Identified Plant">
+                                <div class="confidence-badge" id="res-plant-confidence">94% Confidence</div>
+                            </div>
+                            <div class="plant-title-meta">
+                                <div class="verified-tag">🌿 Plant Identified (Simulated Demo Profile)</div>
+                                <h2 id="res-plant-name">Ashwagandha</h2>
+                                <div class="botanical-name">Scientific Name: <i id="res-scientific-name">Withania somnifera</i></div>
+                                <div class="meta-row">
+                                    <span><strong>Ayurvedic Name:</strong> <span id="res-ayurvedic-name">Ashwagandha</span></span>
+                                    <span><strong>Family:</strong> <span id="res-family">Solanaceae</span></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tkdl-quick-alert" id="res-tkdl-alert">
+                            <div class="alert-icon">📜</div>
+                            <div class="alert-text">
+                                <strong>TKDL Prior Art Status:</strong> <span id="res-tkdl-status">Records Found</span>
+                                <div class="alert-sub" id="res-tkdl-sub">Public traditional knowledge exists. Patentability requires novel extraction/synergy.</div>
+                            </div>
+                            <button class="btn-xs btn-gold" onclick="switchView('ip-guidance')">Check IP Implication</button>
+                        </div>
+                    </div>
+
+                    <!-- PLANT DATA NAVIGATION TABS -->
+                    <div class="tabs-container">
+                        <div class="tabs-header">
+                            <button class="tab-btn active" data-target="ptab-overview">Overview</button>
+                            <button class="tab-btn" data-target="ptab-ayurveda">Ayurvedic Info</button>
+                            <button class="tab-btn" data-target="ptab-healthcare">Healthcare Info</button>
+                            <button class="tab-btn" data-target="ptab-skincare">Skincare Applications</button>
+                            <button class="tab-btn" data-target="ptab-constituents">Important Compounds</button>
+                            <button class="tab-btn" data-target="ptab-safety">Safety & Precautions</button>
+                            <button class="tab-btn" data-target="ptab-tkdl">TKDL & IP Analysis</button>
+                        </div>
+
+                        <div class="tabs-body">
+                            <!-- TAB 1: OVERVIEW -->
+                            <div class="tab-pane active" id="ptab-overview">
+                                <div class="grid grid-2">
+                                    <div class="card-inner">
+                                        <h4>Plant Description</h4>
+                                        <p id="res-overview-desc">Description text...</p>
+                                        <h4 class="mt-3">Geographical Distribution</h4>
+                                        <p id="res-overview-geo">Distribution text...</p>
+                                    </div>
+                                    <div class="card-inner bg-light">
+                                        <h4>Key Botanical Identifiers</h4>
+                                        <ul class="styled-list" id="res-botanical-list">
+                                            <li>Leaves: Ovate, subtle velvet coating</li>
+                                            <li>Flowers: Small, green, bell-shaped</li>
+                                            <li>Fruit: Red berries enclosed in paper-like calyx</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- TAB 2: AYURVEDA -->
+                            <div class="tab-pane" id="ptab-ayurveda">
+                                <div class="grid grid-2">
+                                    <div class="card-inner">
+                                        <h4>Traditional Ayurvedic Uses</h4>
+                                        <ul class="styled-list" id="res-ayur-uses"></ul>
+                                    </div>
+                                    <div class="card-inner">
+                                        <h4>Ayurvedic Properties (Rasa, Guna, Virya, Vipaka)</h4>
+                                        <div class="prop-grid" id="res-ayur-props"></div>
+                                        <h4 class="mt-3">Traditionally Used Parts</h4>
+                                        <div class="tags-group" id="res-parts-used"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- TAB 3: HEALTHCARE INFO -->
+                            <div class="tab-pane" id="ptab-healthcare">
+                                <div class="card-inner">
+                                    <h4>Healthcare & Research Context</h4>
+                                    <p id="res-health-desc"></p>
+                                    <h4 class="mt-3">Studied Areas of Application</h4>
+                                    <ul class="styled-list" id="res-health-areas"></ul>
+                                    <div class="medical-disclaimer-box mt-3">
+                                        <span class="disc-icon">⚠️</span>
+                                        <span><strong>Health Disclaimer:</strong> Traditional wellness and scientific research contexts are provided for informational purpose only. Consult a qualified healthcare practitioner before using plant extracts medicinally.</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- TAB 4: SKINCARE APPLICATIONS -->
+                            <div class="tab-pane" id="ptab-skincare">
+                                <div class="grid grid-2">
+                                    <div class="card-inner">
+                                        <h4>Topical & Skincare Applications</h4>
+                                        <ul class="styled-list" id="res-skincare-uses"></ul>
+                                    </div>
+                                    <div class="card-inner">
+                                        <h4>Common Formulations</h4>
+                                        <div class="tags-group" id="res-skincare-forms"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- TAB 5: CONSTITUENTS -->
+                            <div class="tab-pane" id="ptab-constituents">
+                                <div class="card-inner">
+                                    <h4>Active Phytochemical Constituents</h4>
+                                    <div class="grid grid-3" id="res-constituents-grid"></div>
+                                </div>
+                            </div>
+
+                            <!-- TAB 6: SAFETY -->
+                            <div class="tab-pane" id="ptab-safety">
+                                <div class="card-inner warning-border">
+                                    <h4 class="text-danger">Safety Considerations & Contraindications</h4>
+                                    <ul class="styled-list danger-list" id="res-safety-list"></ul>
+                                </div>
+                            </div>
+
+                            <!-- TAB 7: TKDL & IP -->
+                            <div class="tab-pane" id="ptab-tkdl">
+                                <div class="grid grid-2">
+                                    <div class="card-inner">
+                                        <h4>Traditional Knowledge Match</h4>
+                                        <div class="info-row">
+                                            <span class="lbl">TKDL Database Link:</span>
+                                            <span class="val" id="res-tk-link">Record Found (Entry AY-402)</span>
+                                        </div>
+                                        <div class="info-row">
+                                            <span class="lbl">Public Domain Status:</span>
+                                            <span class="val">Prior Art Established</span>
+                                        </div>
+                                        <h4 class="mt-3">IP Patentability Evaluation</h4>
+                                        <p id="res-ip-evaluation"></p>
+                                    </div>
+                                    <div class="card-inner bg-light">
+                                        <h4>Recommended Next Steps for Innovators</h4>
+                                        <ol class="styled-numbered-list" id="res-ip-steps">
+                                            <li>Verify novelty of specific extraction process (e.g., supercritical CO2 vs traditional decoction).</li>
+                                            <li>Perform patent prior-art search on Indian & WIPO databases.</li>
+                                            <li>Check National Biodiversity Authority (NBA) approval requirements for commercial utilization.</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================== -->
+        <!-- VIEW 5: PRODUCT ANALYZER                   -->
+        <!-- ========================================== -->
+        <section id="view-product-analyzer" class="page-view">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">📦 Automated Label Audit</span>
+                    <h1 class="page-title">AI Product & Label Analyzer</h1>
+                    <p class="page-subtitle">Upload an Ayurvedic product label, packaging image, or formulation document to extract ingredients, cross-reference TKDL prior art, and assess regulatory risk.</p>
+                </div>
+
+                <div class="card mb-4">
+                    <div class="upload-dropzone" id="product-dropzone">
+                        <div class="dropzone-icon">📋</div>
+                        <h3>Upload Product Label or Formulation PDF</h3>
+                        <p>Supports product photos, front/back packaging labels, or specification sheets</p>
+                        <div class="upload-btn-group">
+                            <button class="btn-primary" onclick="triggerFileUpload('product-file-input')">📤 Upload Label Image</button>
+                            <button class="btn-secondary" onclick="runProductDemo('ashwagandha')">✨ Run Demo Product Analysis</button>
+                            <input type="file" id="product-file-input" style="display:none" onchange="handleProductUpload(this)">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LOADING OVERLAY -->
+                <div id="product-loading-overlay" class="loading-overlay" style="display:none;">
+                    <div class="spinner"></div>
+                    <div class="loading-status-text" id="product-loading-text">Performing OCR & Label Text Detection...</div>
+                </div>
+
+                <!-- PRODUCT ANALYSIS RESULTS -->
+                <div id="product-result-container" class="card" style="display:none;">
+                    <div class="card-header flex-between">
+                        <div>
+                            <span class="badge bg-emerald mb-1">OCR & AI Audit Completed</span>
+                            <h2 id="prod-res-title">Ashwagandha Herbal Formulation</h2>
+                        </div>
+                        <div class="risk-score-pill" id="prod-res-score-pill">
+                            <span class="score-num" id="prod-res-score">62</span>
+                            <span class="score-denom">/100 Risk</span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-3 mb-4">
+                        <div class="card-inner bg-light">
+                            <h4>Detected Ingredients</h4>
+                            <div class="tags-group mt-2" id="prod-res-ingredients"></div>
+                        </div>
+
+                        <div class="card-inner bg-light">
+                            <h4>Information Completeness</h4>
+                            <div class="circular-progress-box">
+                                <div class="circle-val" id="prod-res-completeness">82%</div>
+                                <span class="text-sm">Label Details Verified</span>
+                            </div>
+                        </div>
+
+                        <div class="card-inner bg-light">
+                            <h4>Compliance Summary</h4>
+                            <ul class="styled-list text-sm">
+                                <li>TKDL Match: <strong id="prod-res-tk-match" class="text-warning">FOUND</strong></li>
+                                <li>IP Barrier: <strong id="prod-res-ip-barrier" class="text-warning">Moderate (Sec 3p)</strong></li>
+                                <li>ABS Mandatory: <span class="text-success">Yes (NBA)</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- DETAILED AUDIT TABS -->
+                    <div class="card-inner">
+                        <h3>Detailed Pipeline Connection</h3>
+                        <div class="pipeline-flow-bar">
+                            <div class="pipe-node active">1. Product Detected</div>
+                            <div class="pipe-node active">2. Ingredients Extracted</div>
+                            <div class="pipe-node active">3. Plant Knowledge</div>
+                            <div class="pipe-node active">4. TKDL Prior Art</div>
+                            <div class="pipe-node active">5. IP & Regs Audit</div>
+                            <div class="pipe-node active">6. Risk Action Plan</div>
+                        </div>
+
+                        <div class="grid grid-2 mt-4">
+                            <div>
+                                <h4>Potential Missing Information</h4>
+                                <ul class="styled-list danger-list" id="prod-res-missing">
+                                    <li>Exact botanical extraction ratios not declared on label.</li>
+                                    <li>AYUSH manufacturing license number missing.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4>Recommended Actions</h4>
+                                <ol class="styled-numbered-list" id="prod-res-actions">
+                                    <li>Conduct novel extraction assay before filing patent.</li>
+                                    <li>Register brand name under Trademark Class 5.</li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 flex-gap">
+                            <button class="btn-primary" onclick="generateReportForCurrentProduct()">📄 Generate Printable Report</button>
+                            <button class="btn-secondary" onclick="switchView('ai-assistant')">💬 Ask AI Assistant About This Product</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================== -->
+        <!-- VIEW 6: DOCUMENT ANALYZER                  -->
+        <!-- ========================================== -->
+        <section id="view-document-analyzer" class="page-view">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">📑 Legal & Scientific OCR</span>
+                    <h1 class="page-title">AI Document Analyzer</h1>
+                    <p class="page-subtitle">Upload patent applications, research papers, AYUSH regulatory filings, or formulation specs to extract claims, prior-art references, and compliance issues.</p>
+                </div>
+
+                <div class="card mb-4">
+                    <div class="upload-dropzone">
+                        <div class="dropzone-icon">📄</div>
+                        <h3>Upload Document (PDF, DOCX, TXT)</h3>
+                        <p>Analyze patent claims, research articles, or regulatory filings</p>
+                        <div class="upload-btn-group">
+                            <button class="btn-primary" onclick="triggerFileUpload('doc-file-input')">📤 Select Document</button>
+                            <button class="btn-secondary" onclick="simulateDocAnalysis()">✨ Run Sample Patent Document Demo</button>
+                            <input type="file" id="doc-file-input" style="display:none" onchange="handleDocUpload(this)">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="doc-loading-overlay" class="loading-overlay" style="display:none;">
+                    <div class="spinner"></div>
+                    <div class="loading-status-text">Extracting claims & cross-referencing Indian Patent Office database...</div>
+                </div>
+
+                <div id="doc-result-container" class="card" style="display:none;">
+                    <div class="card-header flex-between">
+                        <h3>Document Audit Result: <i>Indian Patent Application #202411009871</i></h3>
+                        <span class="badge bg-emerald">Patent Document Detected</span>
+                    </div>
+
+                    <div class="grid grid-2">
+                        <div class="card-inner">
+                            <h4>Extracted Entities</h4>
+                            <table class="simple-table">
+                                <tr><th>Applicant:</th><td>AyushBio Innovators Pvt Ltd</td></tr>
+                                <tr><th>Filing Date:</th><td>14-Feb-2024</td></tr>
+                                <tr><th>Jurisdiction:</th><td>India (IPO Delhi)</td></tr>
+                                <tr><th>Key Claim:</th><td>Supercritical CO2 extract of Ashwagandha + Piperine for enhanced bio-availability.</td></tr>
+                            </table>
+                        </div>
+
+                        <div class="card-inner bg-light">
+                            <h4>AI Legal Assessment</h4>
+                            <p><strong>Section 3(p) Risk:</strong> MODERATE. Pure combinations of Ashwagandha and Piperine exist in classical Ayurvedic texts (Trikatu synergy). However, specific supercritical fluid extraction parameters are potentially patentable if unexpected efficacy is proven.</p>
+                            <button class="btn-primary btn-sm mt-3" onclick="switchView('ai-assistant')">Ask AI Assistant About This Claim</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================== -->
+        <!-- VIEW 7: IP SEARCH & PRIOR ART              -->
+        <!-- ========================================== -->
+        <section id="view-ip-search" class="page-view">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">🔎 Database Query Engine</span>
+                    <h1 class="page-title">Search Existing IP & Prior Art</h1>
+                    <p class="page-subtitle">Search registered patents, trademarks, and geographical indications across India, WIPO, USA, EU, and Asian jurisdictions.</p>
+                </div>
+
+                <div class="card mb-4">
+                    <div class="search-bar-box">
+                        <input type="text" id="ip-search-input" class="search-input-lg" placeholder="Enter plant name, formulation, active compound (e.g. Ashwagandha stress relief formulation)...">
+                        <button class="btn-primary btn-lg" onclick="executeIPSearch()">🔍 Search Database</button>
+                    </div>
+
+                    <div class="search-filters-row mt-3">
+                        <div class="filter-group">
+                            <label>IP Category:</label>
+                            <div class="tags-group">
+                                <button class="chip-filter active" data-filter="all">All Categories</button>
+                                <button class="chip-filter" data-filter="Patent">Patent</button>
+                                <button class="chip-filter" data-filter="Trademark">Trademark</button>
+                                <button class="chip-filter" data-filter="GI">Geographical Indication</button>
+                            </div>
+                        </div>
+
+                        <div class="filter-group">
+                            <label>Jurisdiction:</label>
+                            <select id="country-filter" class="select-input" onchange="executeIPSearch()">
+                                <option value="all">Global (All Countries)</option>
+                                <option value="India">India (IPO)</option>
+                                <option value="USA">United States (USPTO)</option>
+                                <option value="UK">United Kingdom (UKIPO)</option>
+                                <option value="EU">European Union (EPO)</option>
+                                <option value="Japan">Japan (JPO)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="ip-results-wrapper">
+                    <div class="flex-between mb-3">
+                        <h3>Search Results (<span id="search-result-count">4</span> Records Found)</h3>
+                        <span class="text-sm text-muted">Simulated Demo IP Database Records</span>
+                    </div>
+
+                    <div class="grid grid-2" id="ip-results-grid">
+                        <!-- Results rendered via JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================== -->
+        <!-- VIEW 8: IP GUIDANCE                       -->
+        <!-- ========================================== -->
+        <section id="view-ip-guidance" class="page-view">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">⚖️ Protection Strategy</span>
+                    <h1 class="page-title">IP Protection Advisor</h1>
+                    <p class="page-subtitle">Select what asset you wish to protect to discover recommended intellectual property regimes and filing prerequisites.</p>
+                </div>
+
+                <div class="grid grid-3 mb-4">
+                    <div class="advisor-card" onclick="showIPAdvice('formulation')">
+                        <div class="adv-icon">🌿</div>
+                        <h3>New Herbal Formulation</h3>
+                        <p>Synergistic extracts, novel dosage forms, or combination remedies.</p>
+                    </div>
+
+                    <div class="advisor-card" onclick="showIPAdvice('process')">
+                        <div class="adv-icon">⚙️</div>
+                        <h3>Manufacturing Process</h3>
+                        <p>Supercritical extraction, purification techniques, or standardization methods.</p>
+                    </div>
+
+                    <div class="advisor-card" onclick="showIPAdvice('brand')">
+                        <div class="adv-icon">🏷️</div>
+                        <h3>Brand Name / Logo</h3>
+                        <p>Commercial product title, brand logo, or trade dress packaging.</p>
+                    </div>
+
+                    <div class="advisor-card" onclick="showIPAdvice('design')">
+                        <div class="adv-icon">🎨</div>
+                        <h3>Product Packaging Design</h3>
+                        <p>Unique bottle shape, applicator mechanism, or aesthetic container.</p>
+                    </div>
+
+                    <div class="advisor-card" onclick="showIPAdvice('tk')">
+                        <div class="adv-icon">📚</div>
+                        <h3>Traditional Remedy Knowledge</h3>
+                        <p>Heritage formulations passed down through generations.</p>
+                    </div>
+
+                    <div class="advisor-card" onclick="showIPAdvice('gi')">
+                        <div class="adv-icon">📍</div>
+                        <h3>Geographical Origin</h3>
+                        <p>Herbs harvested from specific traditional regions (e.g. Kashmir Saffron).</p>
+                    </div>
+                </div>
+
+                <div id="ip-advice-display" class="card bg-light border-emerald">
+                    <div class="card-header">
+                        <h2 id="advice-title">Select an asset above to inspect tailored IP protection guidance</h2>
+                    </div>
+                    <div id="advice-body" class="card-body">
+                        <p>Click on any of the 6 categories above to see exact patentability requirements, trademark classes, GI rules, and TKDL compliance criteria.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================== -->
+        <!-- VIEW 9: REGULATIONS & INTERNATIONAL         -->
+        <!-- ========================================== -->
+        <section id="view-regulations" class="page-view">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">📜 Regulatory Frameworks</span>
+                    <h1 class="page-title">National & International Regulations</h1>
+                    <p class="page-subtitle">Understand AYUSH statutory guidelines, National Biodiversity Authority Access & Benefit Sharing (ABS) protocols, and global export criteria.</p>
+                </div>
+
+                <!-- INDIAN REGULATIONS -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h2>🇮🇳 Indian Regulatory Framework</h2>
+                    </div>
+                    <div class="grid grid-3 mt-3">
+                        <div class="reg-card">
+                            <span class="reg-tag">Patents Act 1970</span>
+                            <h3>Section 3(p)</h3>
+                            <p>Excludes traditional knowledge and aggregation of known plant properties from patentability.</p>
+                        </div>
+                        <div class="reg-card">
+                            <span class="reg-tag">Biodiversity Act 2002</span>
+                            <h3>NBA & ABS Rules</h3>
+                            <p>Mandatory approval from National Biodiversity Authority before applying for IP based on Indian biological resources.</p>
+                        </div>
+                        <div class="reg-card">
+                            <span class="reg-tag">Drugs & Cosmetics Act</span>
+                            <h3>AYUSH Licensing</h3>
+                            <p>Rules for manufacturing Ayurvedic, Siddha, and Unani medicines under Rule 158(B).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- INTERNATIONAL COMPARISON SECTION -->
+                <div class="card">
+                    <div class="card-header flex-between">
+                        <div>
+                            <h2>🌍 International Export & IP Comparison</h2>
+                            <p class="text-sm text-muted">Select destination country to compare regulatory requirements against India.</p>
+                        </div>
+                        <div class="country-selector-box">
+                            <label>Target Market:</label>
+                            <select id="intl-country-select" class="select-input" onchange="updateIntlComparison()">
+                                <option value="USA">USA (FDA & USPTO)</option>
+                                <option value="EU">European Union (EMA & EPO)</option>
+                                <option value="UK">United Kingdom (MHRA & UKIPO)</option>
+                                <option value="Canada">Canada (Health Canada)</option>
+                                <option value="Japan">Japan (PMDA & JPO)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="table-responsive mt-3">
+                        <table class="data-table intl-table">
+                            <thead>
+                                <tr>
+                                    <th>Regulatory Domain</th>
+                                    <th>🇮🇳 India (Home Baseline)</th>
+                                    <th><span id="intl-target-flag">🇺🇸</span> <span id="intl-target-name">USA</span> (Target Market)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="intl-table-body">
+                                <!-- Generated by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================== -->
+        <!-- VIEW 10: KNOWLEDGE LIBRARY                 -->
+        <!-- ========================================== -->
+        <section id="view-knowledge-library" class="page-view">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">📚 Verifiable Sources</span>
+                    <h1 class="page-title">Trusted Knowledge Library</h1>
+                    <p class="page-subtitle">Authoritative data sources integrated into the IP-SAKTI RAG retrieval engine.</p>
+                </div>
+
+                <div class="grid grid-3" id="library-cards-grid">
+                    <!-- Library cards loaded by JS -->
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================== -->
+        <!-- VIEW 11: FUTURE TECHNICAL ARCHITECTURE     -->
+        <!-- ========================================== -->
+        <section id="view-architecture" class="page-view">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">🛠️ SIH System Architecture</span>
+                    <h1 class="page-title">How the Production System Works</h1>
+                    <p class="page-subtitle">Architectural design for the scalable production implementation of IP-SAKTI Sahayak.</p>
+                </div>
+
+                <div class="card mb-4">
+                    <h3>End-to-End System Data Flow</h3>
+                    <div class="arch-diagram">
+                        <div class="arch-node user">
+                            <div class="an-icon">👤</div>
+                            <div class="an-label">User Input (Text / Image / Document)</div>
+                        </div>
+                        <div class="arch-arrow">&rarr;</div>
+
+                        <div class="arch-node fe">
+                            <div class="an-icon">🖥️</div>
+                            <div class="an-label">Frontend UI (HTML/CSS/JS)</div>
+                        </div>
+                        <div class="arch-arrow">&rarr;</div>
+
+                        <div class="arch-node vision">
+                            <div class="an-icon">📷</div>
+                            <div class="an-label">CV / OCR Model (Plant ID & Text)</div>
+                        </div>
+                        <div class="arch-arrow">&rarr;</div>
+
+                        <div class="arch-node rag">
+                            <div class="an-icon">🔍</div>
+                            <div class="an-label">RAG Engine (ChromaDB / FAISS)</div>
+                        </div>
+                        <div class="arch-arrow">&rarr;</div>
+
+                        <div class="arch-node db">
+                            <div class="an-icon">📚</div>
+                            <div class="an-label">TKDL, IPO & AYUSH Databases</div>
+                        </div>
+                        <div class="arch-arrow">&rarr;</div>
+
+                        <div class="arch-node llm">
+                            <div class="an-icon">🤖</div>
+                            <div class="an-label">Fine-Tuned LLM (Source Verification)</div>
+                        </div>
+                        <div class="arch-arrow">&rarr;</div>
+
+                        <div class="arch-node output">
+                            <div class="an-icon">🎯</div>
+                            <div class="an-label">Source-Cited Guidance & Risk Score</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-2">
+                    <div class="card">
+                        <h3>Future Production Technology Stack</h3>
+                        <ul class="styled-list">
+                            <li><strong>Frontend:</strong> HTML5, CSS3, Vanilla JS (or React/Next.js)</li>
+                            <li><strong>Backend API:</strong> Python FastAPI / Asynchronous Services</li>
+                            <li><strong>AI / RAG Pipeline:</strong> LangChain, LlamaIndex, Python Transformers</li>
+                            <li><strong>Vector Database:</strong> ChromaDB / FAISS / Pinecone</li>
+                            <li><strong>Computer Vision:</strong> Custom Trained ResNet/EfficientNet Plant Identification Model</li>
+                            <li><strong>OCR Engine:</strong> Tesseract OCR / PaddleOCR</li>
+                            <li><strong>Database:</strong> PostgreSQL with PostGIS</li>
+                        </ul>
+                    </div>
+
+                    <div class="card bg-accent-light border-gold">
+                        <h3>Prototype Notice for Hackathon Evaluators</h3>
+                        <p>This frontend prototype demonstrates the exact end-to-end user experience, computer vision simulation, RAG response generation, risk scoring algorithms, and source-citation system required by SIH Problem Statement 26045 using client-side JavaScript mock data structures.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================== -->
+        <!-- VIEW 12: REPORTS & GENERATOR               -->
+        <!-- ========================================== -->
+        <section id="view-reports" class="page-view">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">📄 Audit Reports</span>
+                    <h1 class="page-title">Generate & Print IP-SAKTI Reports</h1>
+                    <p class="page-subtitle">Download presentation-ready PDF reports summarizing plant identification, traditional knowledge prior art, IP risk scoring, and regulatory recommendations.</p>
+                </div>
+
+                <div class="card">
+                    <div class="flex-between mb-3">
+                        <h2>Available Audit Summaries</h2>
+                        <button class="btn-primary" onclick="generateCustomReport()">+ Create Custom Audit Report</button>
+                    </div>
+
+                    <div class="grid grid-2">
+                        <div class="report-summary-card">
+                            <div class="r-icon">📄</div>
+                            <div class="r-details">
+                                <h3>Ashwagandha Formulation Patentability Audit</h3>
+                                <p>Evaluates Withania somnifera formulation against TKDL prior art and Indian Patent Act Sec 3(p).</p>
+                                <div class="r-meta">Risk Score: <strong>62/100 (Moderate)</strong> • Generated 10-Sep-2026</div>
+                            </div>
+                            <button class="btn-secondary btn-sm" onclick="openPrintReportModal('ashwagandha')">Print / Save PDF</button>
+                        </div>
+
+                        <div class="report-summary-card">
+                            <div class="r-icon">📄</div>
+                            <div class="r-details">
+                                <h3>Neem Skincare Product Compliance Report</h3>
+                                <p>Azadirachta indica topical application analysis for Indian AYUSH licensing & US FDA export.</p>
+                                <div class="r-meta">Risk Score: <strong>54/100 (Moderate)</strong> • Generated 09-Sep-2026</div>
+                            </div>
+                            <button class="btn-secondary btn-sm" onclick="openPrintReportModal('neem')">Print / Save PDF</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================== -->
+        <!-- VIEW 13: ABOUT PAGE                        -->
+        <!-- ========================================== -->
+        <section id="view-about" class="page-view">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">ℹ️ About the Project</span>
+                    <h1 class="page-title">About IP-SAKTI Sahayak</h1>
+                    <p class="page-subtitle">Democratizing Intellectual Property & Regulatory Literacy for Ayurveda Innovators across India.</p>
+                </div>
+
+                <div class="grid grid-2 mb-4">
+                    <div class="card">
+                        <h3>The Challenge (SIH Problem Statement 26045)</h3>
+                        <p>Ayurveda is supported by a rich body of traditional knowledge and biological resources. However, innovators, researchers, MSMEs, and practitioners frequently struggle to:</p>
+                        <ul class="styled-list">
+                            <li>Identify public domain Traditional Knowledge (TKDL) and avoid invalid patent claims.</li>
+                            <li>Navigate complex statutory provisions like Section 3(p) of the Indian Patents Act.</li>
+                            <li>Comply with National Biodiversity Authority (NBA) Access and Benefit Sharing (ABS) regulations.</li>
+                            <li>Understand foreign market requirements (US FDA, EU EMA) for Ayurvedic exports.</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h3>Our AI-Powered Solution</h3>
+                        <p>IP-SAKTI Sahayak brings plant intelligence, traditional knowledge records, intellectual property guidelines, and regulatory frameworks into a unified, source-cited assistant.</p>
+                        <ul class="styled-list">
+                            <li><strong>Source Transparency:</strong> Every answer links to verifiable repositories.</li>
+                            <li><strong>Multilingual Equity:</strong> Accessible in English and regional Indian languages.</li>
+                            <li><strong>Risk Scoring:</strong> Instant visual indicators for novelty and legal compliance.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- ========================================== -->
+    <!-- MODALS & OVERLAYS                          -->
+    <!-- ========================================== -->
+
+    <!-- 1. GUIDED SIH DEMO MODAL -->
+    <div id="demo-modal" class="modal-backdrop" style="display:none;">
+        <div class="modal-box modal-lg">
+            <div class="modal-header">
+                <span class="modal-title">⚡ SIH Presentation Guided Tour (3-Min Flow)</span>
+                <button class="modal-close" onclick="closeModal('demo-modal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="demo-stepper">
+                    <div class="demo-step-indicator active" id="demo-step-1-ind">1. Plant ID</div>
+                    <div class="demo-step-indicator" id="demo-step-2-ind">2. Product Audit</div>
+                    <div class="demo-step-indicator" id="demo-step-3-ind">3. AI Assistant</div>
+                    <div class="demo-step-indicator" id="demo-step-4-ind">4. Hindi Toggle</div>
+                    <div class="demo-step-indicator" id="demo-step-5-ind">5. Export Regs</div>
+                    <div class="demo-step-indicator" id="demo-step-6-ind">6. PDF Report</div>
+                </div>
+
+                <div class="demo-step-content" id="demo-step-content">
+                    <!-- Dynamic demo step content -->
+                </div>
+            </div>
+            <div class="modal-footer flex-between">
+                <button class="btn-secondary" onclick="prevDemoStep()" id="btn-demo-prev" disabled>&larr; Previous</button>
+                <span class="text-sm text-muted" id="demo-step-num-label">Step 1 of 6</span>
+                <button class="btn-primary" onclick="nextDemoStep()" id="btn-demo-next">Next Step &rarr;</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. PRINTABLE REPORT MODAL -->
+    <div id="report-modal" class="modal-backdrop" style="display:none;">
+        <div class="modal-box modal-xl print-modal-box">
+            <div class="modal-header no-print">
+                <span class="modal-title">📄 Official IP-SAKTI Sahayak Audit Report</span>
+                <div class="flex-gap">
+                    <button class="btn-primary btn-sm" onclick="window.print()">🖨️ Print / Save as PDF</button>
+                    <button class="modal-close" onclick="closeModal('report-modal')">&times;</button>
+                </div>
+            </div>
+            <div class="modal-body printable-area" id="printable-report-content">
+                <!-- Report html generated by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. RAG PIPELINE MODAL -->
+    <div id="rag-modal" class="modal-backdrop" style="display:none;">
+        <div class="modal-box modal-lg">
+            <div class="modal-header">
+                <span class="modal-title">🔍 RAG (Retrieval-Augmented Generation) Architecture</span>
+                <button class="modal-close" onclick="closeModal('rag-modal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>How IP-SAKTI prevents AI hallucinations by forcing every response to retrieve verified chunks from authoritative databases before generating text:</p>
+                <div class="rag-flow-visual mt-3">
+                    <div class="rag-step">1. User Query Received</div>
+                    <div class="rag-arrow">&rarr;</div>
+                    <div class="rag-step">2. Vector Search across TKDL & IPO</div>
+                    <div class="rag-arrow">&rarr;</div>
+                    <div class="rag-step">3. Retrieve Top-k Source Citations</div>
+                    <div class="rag-arrow">&rarr;</div>
+                    <div class="rag-step">4. LLM Formulates Source-Cited Guidance</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. LOGIN MODAL -->
+    <div id="login-modal" class="modal-backdrop" style="display:none;">
+        <div class="modal-box modal-sm">
+            <div class="modal-header">
+                <span class="modal-title">🔑 User Login</span>
+                <button class="modal-close" onclick="closeModal('login-modal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label>User Role:</label>
+                        <select class="select-input w-100">
+                            <option>Ayurveda Innovator / Student</option>
+                            <option>Patent Attorney / IP Professional</option>
+                            <option>Researcher / Academic</option>
+                            <option>MSME Enterprise</option>
+                        </select>
+                    </div>
+                    <div class="form-group mt-2">
+                        <label>Email Address:</label>
+                        <input type="email" class="input-text w-100" placeholder="innovator@ayush.gov.in" required>
+                    </div>
+                    <div class="form-group mt-2">
+                        <label>Password:</label>
+                        <input type="password" class="input-text w-100" value="password" required>
+                    </div>
+                    <button type="submit" class="btn-primary w-100 mt-3">Login to Dashboard</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <div class="logo">
+                    <span class="logo-icon">🌿</span>
+                    <span class="brand-title">IP-SAKTI Sahayak</span>
+                </div>
+                <p class="footer-desc">AI-Powered Intellectual Property & Regulatory Assistant for Ayurveda. Built for SIH Problem Statement 26045.</p>
+                <div class="footer-tagline">“Identify. Understand. Verify. Protect.”</div>
+            </div>
+
+            <div class="footer-links">
+                <h4>Quick Navigation</h4>
+                <ul>
+                    <li><a href="#home" onclick="switchView('home')">Home</a></li>
+                    <li><a href="#dashboard" onclick="switchView('dashboard')">Dashboard</a></li>
+                    <li><a href="#ai-assistant" onclick="switchView('ai-assistant')">AI Assistant</a></li>
+                    <li><a href="#plant-intelligence" onclick="switchView('plant-intelligence')">Plant Intelligence</a></li>
+                    <li><a href="#regulations" onclick="switchView('regulations')">Regulatory Frameworks</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Core Repositories</h4>
+                <ul>
+                    <li><a href="#knowledge-library" onclick="switchView('knowledge-library')">TKDL (CSIR)</a></li>
+                    <li><a href="#knowledge-library" onclick="switchView('knowledge-library')">Indian Patent Office</a></li>
+                    <li><a href="#knowledge-library" onclick="switchView('knowledge-library')">WIPO Patentscope</a></li>
+                    <li><a href="#knowledge-library" onclick="switchView('knowledge-library')">National Biodiversity Authority</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container flex-between">
+                <span>© 2026 IP-SAKTI Sahayak • Smart India Hackathon 2026 Prototype</span>
+                <span class="text-xs text-muted">Client-side HTML5/CSS3/Vanilla JS Demonstration</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPT INCLUSION -->
+    <script src="script.js"></script>
+</body>
+</html>
